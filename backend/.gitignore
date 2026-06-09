@@ -1,0 +1,15 @@
+# Environment variables — never commit these
+.env
+.env.local
+.env.production
+
+# Dependencies — these are reinstalled via npm install
+node_modules/
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
