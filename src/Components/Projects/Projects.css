@@ -1,24 +1,100 @@
-.projects{
-    margin: 100px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  width: 90%;
+  margin: 80px auto 48px;
 }
-/*.project-icon{
-    flex-basis: 40%;
-}*/
-.project-description{
-    /*flex-basis: 56%;*/
-    justify-content: center;
-    align-items: center;
-}
-.projects-btn{
-    display:flex;
-    justify-content: center;
-    align-items: end;
-}
-/*----------media query-------
-@media (max-width: 800px){
 
-}*/
+.project-card {
+  background: #fff;
+  border: 1px solid #dce6f5;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(14, 40, 100, 0.12);
+}
+
+.pc-accent {
+  height: 4px;
+  background: linear-gradient(90deg, #1e3a8a, #3b6fff);
+}
+
+.pc-body {
+  padding: 24px 22px 20px;
+}
+
+.pc-num {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7a94c1;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pc-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0e2864;
+  margin-bottom: 10px;
+}
+
+.pc-desc {
+  font-size: 14px;
+  color: #4a6080;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.pc-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.pc-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #e8effe;
+  color: #1e3a8a;
+  border: 1px solid #b8cdf8;
+}
+
+.pc-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a8a;
+  text-decoration: none;
+  border: 1px solid #b8cdf8;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background 0.15s;
+}
+
+.pc-link:hover {
+  background: #e8effe;
+}
+
+.projects-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+/* ---------- media query ---------- */
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    width: 92%;
+  }
+}
