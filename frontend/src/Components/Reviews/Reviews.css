@@ -57,6 +57,25 @@
 .user-info h3{
     color: #212EA0;
 }
+.reviews-status {
+  text-align: center;
+  padding: 40px 0;
+  color: #7a8bb5;
+  font-size: 15px;
+}
+
+.rf-submit-error {
+  color: #c0392b;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.rf-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 /*----------media query-------*/
 @media (max-width: 800px){
     .reviews{

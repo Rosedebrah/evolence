@@ -49,6 +49,20 @@
     display: block;
     margin: 20px 0;
 }
+.contact-result {
+  display: block;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-result.success {
+  color: #212ea0;
+}
+
+.contact-result.error {
+  color: #c0392b;
+}
 /*----------media query-------*/
 @media (max-width: 700px){
     .contact{

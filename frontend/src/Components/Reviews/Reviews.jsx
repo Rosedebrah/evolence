@@ -1,102 +1,279 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import './Reviews.css'
 import next_icon from '../../assets/next-icon.png'
 import back_icon from '../../assets/back-icon.png'
-import user_1 from '../../assets/user-1.png'
-import user_2 from '../../assets/user-2.png'
-import user_3 from '../../assets/user-3.png'
-import user_4 from '../../assets/user-4.png'
+import { ENDPOINTS } from '../../config/api'
 
+const SERVICES = [
+  'School & SME Digitisation',
+  'Automation & Ops Support',
+  'Excel & Data Training',
+  'UI/UX & MVP Design',
+  'Branding',
+  'Printing',
+]
 
+const StarRating = ({ value, onChange }) => (
+  <div className="star-input">
+    {[1, 2, 3, 4, 5].map((n) => (
+      <span
+        key={n}
+        className={`star ${n <= value ? 'lit' : ''}`}
+        onClick={() => onChange(n)}
+      >
+        ★
+      </span>
+    ))}
+  </div>
+)
 
 const Reviews = () => {
-
-
   const slider = useRef(null)
   const tx = useRef(0)
 
+  const [reviews, setReviews] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [fetchError, setFetchError] = useState(false)
+
+  const [showForm, setShowForm] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+
+  const [form, setForm] = useState({
+    name: '', title: '', company: '',
+    service: '', rating: 0, review: '',
+  })
+  const [errors, setErrors] = useState({})
+
+  // ── Fetch approved reviews from API on mount ──
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const res = await fetch(ENDPOINTS.reviews)
+        if (!res.ok) throw new Error('Failed to fetch')
+        const data = await res.json()
+        setReviews(data)
+      } catch (err) {
+        console.error('Could not load reviews:', err)
+        setFetchError(true)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchReviews()
+  }, [])
+
+  // ── Slider controls ──
   const slideForward = () => {
-    if (tx.current > -100) {
-      tx.current -= 25
+    if (tx.current > -50 * (reviews.length - 2)) {
+      tx.current -= 50
       slider.current.style.transform = `translateX(${tx.current}%)`
     }
   }
 
   const slideBackward = () => {
     if (tx.current < 0) {
-      tx.current += 25
+      tx.current += 50
       slider.current.style.transform = `translateX(${tx.current}%)`
     }
   }
 
+  // ── Form handling ──
+  const handleChange = (field, value) => {
+    setForm((f) => ({ ...f, [field]: value }))
+    if (errors[field]) setErrors((e) => ({ ...e, [field]: '' }))
+  }
+
+  const validate = () => {
+    const e = {}
+    if (!form.name.trim())    e.name    = 'Required'
+    if (!form.title.trim())   e.title   = 'Required'
+    if (!form.company.trim()) e.company = 'Required'
+    if (!form.service)        e.service = 'Please select a service'
+    if (form.rating === 0)    e.rating  = 'Please select a rating'
+    if (!form.review.trim())  e.review  = 'Required'
+    return e
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const errs = validate()
+    if (Object.keys(errs).length) { setErrors(errs); return }
+
+    setSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const res = await fetch(ENDPOINTS.reviews, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setSubmitError(data.message || 'Something went wrong. Please try again.')
+        return
+      }
+
+      // Reset form and show thank you message
+      setForm({ name: '', title: '', company: '', service: '', rating: 0, review: '' })
+      setErrors({})
+      setSubmitted(true)
+      setShowForm(false)
+
+    } catch (err) {
+      console.error('Submit error:', err)
+      setSubmitError('Could not connect to server. Please try again later.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
-    <div className='reviews'>
-      <img src={next_icon} alt='' className='next-btn' onClick={slideForward} />
-      <img src={back_icon} alt='' className='back-btn'onClick={slideBackward}/>
-      <div className="slider">
-        <ul ref={slider}>
-            <li>
-                <div className="slide">
+    <div className="reviews-section">
+
+      {/* ── Slider ── */}
+      <div className="reviews">
+        <img src={next_icon} alt="Next" className="next-btn" onClick={slideForward} />
+        <img src={back_icon} alt="Back" className="back-btn" onClick={slideBackward} />
+
+        <div className="slider">
+          {loading && (
+            <p className="reviews-status">Loading reviews…</p>
+          )}
+          {fetchError && (
+            <p className="reviews-status">Could not load reviews right now.</p>
+          )}
+          {!loading && !fetchError && reviews.length === 0 && (
+            <p className="reviews-status">No reviews yet — be the first!</p>
+          )}
+          {!loading && !fetchError && reviews.length > 0 && (
+            <ul ref={slider}>
+              {reviews.map((r) => (
+                <li key={r._id}>
+                  <div className="slide">
                     <div className="user-info">
-                        <img src={user_1} alt="" />
-                        <div>
-                            <h3>William Jackson</h3>
-                            <span>School Admin, Nairobi</span>
-                        </div>
+                      <div className="user-initials">
+                        {r.name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase()}
+                      </div>
+                      <div>
+                        <h3>{r.name}</h3>
+                        <span>{r.title}{r.company ? `, ${r.company}` : ''}</span>
+                      </div>
                     </div>
-                    <p>Evolence helped us move from paper records and scattered spreadsheets to a clean, digital system we actually understand and use. Reporting is faster, data is more accurate, and our admin team finally feels in control of our operations.</p>
-                </div>
-            </li>
-            <li>
-                <div className="slide">
-                    <div className="user-info">
-                        <img src={user_2} alt="" />
-                        <div>
-                            <h3>Jane Atieno</h3>
-                            <span>Managing Partner, Consulting SME</span>
-                        </div>
+                    <div className="slide-meta">
+                      <span className="slide-stars">
+                        {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
+                      </span>
+                      <span className="slide-service">{r.service}</span>
                     </div>
-                    <p>Before working with Evolence, our processes were reactive and time-consuming. The systems they set up gave us clarity on projects, workloads, and reporting. We’ve cut down admin time significantly and now focus more on delivery.</p>
-                </div>
-            </li>
-            <li>
-                <div className="slide">
-                    <div className="user-info">
-                        <img src={user_3} alt="" />
-                        <div>
-                            <h3>Terry Shikuku</h3>
-                            <span>Startup Founder</span>
-                        </div>
-                    </div>
-                    <p>Evolence brought structure where we had ideas but no systems. From MVP design to setting up simple data tracking, everything was clear, fast, and practical. It felt like working with someone who truly understands early-stage chaos.</p>
-                </div>
-            </li>
-            <li>
-                <div className="slide">
-                    <div className="user-info">
-                        <img src={user_4} alt="" />
-                        <div>
-                            <h3>Brenda Chepkemoi</h3>
-                            <span>Operations Lead SME</span>
-                        </div>
-                    </div>
-                    <p>The Excel and data training was hands-on and immediately useful. Nothing felt theoretical. Our team now builds reports confidently and actually uses data in decision-making.</p>
-                </div>
-            </li>
-            <li>
-                <div className="slide">
-                    <div className="user-info">
-                        <img src={user_4} alt="" />
-                        <div>
-                            <h3>Grace Wairimu</h3>
-                            <span>Founder-led Business</span>
-                        </div>
-                    </div>
-                    <p>What stood out about Evolence was the focus on simplicity. They didn’t overcomplicate things—just built systems that worked for our team. The automation alone saved us hours every week.</p>
-                </div>
-            </li>
-        </ul>
+                    <p>{r.review}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
+
+      {/* ── CTA ── */}
+      <div className="reviews-cta">
+        {submitted && !showForm && (
+          <p className="thanks-msg">
+            ✓ Thank you! Your review has been submitted and will appear once approved.
+          </p>
+        )}
+        <button
+          className="add-review-btn"
+          onClick={() => { setShowForm((v) => !v); setSubmitted(false) }}
+        >
+          {showForm ? '✕ Cancel' : '+ Leave a Review'}
+        </button>
+      </div>
+
+      {/* ── Form ── */}
+      {showForm && (
+        <form className="review-form" onSubmit={handleSubmit} noValidate>
+          <div className="rf-grid">
+
+            <div className="rf-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                placeholder="e.g. Jane Atieno"
+                value={form.name}
+                onChange={(e) => handleChange('name', e.target.value)}
+              />
+              {errors.name && <span className="rf-error">{errors.name}</span>}
+            </div>
+
+            <div className="rf-group">
+              <label>Company</label>
+              <input
+                type="text"
+                placeholder="e.g. Acme Ltd"
+                value={form.company}
+                onChange={(e) => handleChange('company', e.target.value)}
+              />
+              {errors.company && <span className="rf-error">{errors.company}</span>}
+            </div>
+
+            <div className="rf-group">
+              <label>Title / Role</label>
+              <input
+                type="text"
+                placeholder="e.g. Operations Lead"
+                value={form.title}
+                onChange={(e) => handleChange('title', e.target.value)}
+              />
+              {errors.title && <span className="rf-error">{errors.title}</span>}
+            </div>
+
+            <div className="rf-group">
+              <label>Service Received</label>
+              <select
+                value={form.service}
+                onChange={(e) => handleChange('service', e.target.value)}
+              >
+                <option value="">Select a service…</option>
+                {SERVICES.map((s) => <option key={s}>{s}</option>)}
+              </select>
+              {errors.service && <span className="rf-error">{errors.service}</span>}
+            </div>
+
+            <div className="rf-group rf-full">
+              <label>Your Rating</label>
+              <StarRating
+                value={form.rating}
+                onChange={(v) => handleChange('rating', v)}
+              />
+              {errors.rating && <span className="rf-error">{errors.rating}</span>}
+            </div>
+
+            <div className="rf-group rf-full">
+              <label>Your Review</label>
+              <textarea
+                rows={4}
+                placeholder="Share your experience working with Evolence…"
+                value={form.review}
+                onChange={(e) => handleChange('review', e.target.value)}
+              />
+              {errors.review && <span className="rf-error">{errors.review}</span>}
+            </div>
+
+          </div>
+
+          {submitError && <p className="rf-submit-error">{submitError}</p>}
+
+          <button type="submit" className="rf-submit" disabled={submitting}>
+            {submitting ? 'Submitting…' : 'Submit Review'}
+          </button>
+        </form>
+      )}
+
     </div>
   )
 }
