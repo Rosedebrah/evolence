@@ -11,7 +11,11 @@ connectDB()
 const app = express()
 
 app.use(cors({
-  origin: 'http://localhost:5173', // your Vite dev URL — update to your live URL before deploying
+  origin: [
+    'http://localhost:5173',
+    'http://evolence.vercel.app',
+    ],
+     // your Vite dev URL — update to your live URL before deploying
   methods: ['GET', 'POST'],
 }))
 app.use(express.json())
