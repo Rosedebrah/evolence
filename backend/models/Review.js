@@ -19,7 +19,6 @@ const reviewSchema = new mongoose.Schema(
     },
     rating: { type: Number, required: true, min: 1, max: 5 },
     review: { type: String, required: true, trim: true },
-    approved: { type: Boolean, default: true },
   },
   { timestamps: true }
 )

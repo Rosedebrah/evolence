@@ -1,16 +1,16 @@
 import Review from '../models/Review.js'
 
-// GET /api/reviews — fetch all approved reviews
+// GET /api/reviews — fetch all reviews
 export const getReviews = async (req, res) => {
   try {
-    const reviews = await Review.find({ approved: true }).sort({ createdAt: -1 })
+    const reviews = await Review.find().sort({ createdAt: -1 })
     res.json(reviews)
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message })
   }
 }
 
-// POST /api/reviews — submit a new review (pending approval)
+// POST /api/reviews — submit a new review 
 export const createReview = async (req, res) => {
   try {
     const { name, title, company, service, rating, review } = req.body
@@ -24,7 +24,7 @@ export const createReview = async (req, res) => {
     })
 
     res.status(201).json({
-      message: 'Review submitted and pending approval. Thank you!',
+      message: 'Review submitted successfully. Thank you!',
       review: newReview,
     })
   } catch (error) {

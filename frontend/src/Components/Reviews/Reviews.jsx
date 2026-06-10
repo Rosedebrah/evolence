@@ -3,6 +3,7 @@ import './Reviews.css'
 import next_icon from '../../assets/next-icon.png'
 import back_icon from '../../assets/back-icon.png'
 import { ENDPOINTS } from '../../config/api'
+import white_arrow from '../../assets/white-arrow.png'
 
 const SERVICES = [
   'School & SME Digitisation',
@@ -191,6 +192,7 @@ const Reviews = () => {
           onClick={() => { setShowForm((v) => !v); setSubmitted(false) }}
         >
           {showForm ? '✕ Cancel' : '+ Leave a Review'}
+          
         </button>
       </div>
 
