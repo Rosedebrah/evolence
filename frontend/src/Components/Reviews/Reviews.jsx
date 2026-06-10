@@ -2,8 +2,8 @@ import React, { useRef, useState, useEffect } from 'react'
 import './Reviews.css'
 import next_icon from '../../assets/next-icon.png'
 import back_icon from '../../assets/back-icon.png'
-import { ENDPOINTS } from '../../config/api'
 import white_arrow from '../../assets/white-arrow.png'
+import { ENDPOINTS } from '../../config/api'
 
 const SERVICES = [
   'School & SME Digitisation',
@@ -47,7 +47,7 @@ const Reviews = () => {
   })
   const [errors, setErrors] = useState({})
 
-  // ── Fetch approved reviews from API on mount ──
+  // ── Fetch reviews on mount ──
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -65,19 +65,33 @@ const Reviews = () => {
     fetchReviews()
   }, [])
 
-  // ── Slider controls ──
-  const slideForward = () => {
-    if (tx.current > -50 * (reviews.length - 2)) {
-      tx.current -= 50
-      slider.current.style.transform = `translateX(${tx.current}%)`
+  // ── Reset slider position when reviews load ──
+  useEffect(() => {
+    tx.current = 0
+    if (slider.current) {
+      slider.current.style.transform = `translateX(0px)`
     }
+  }, [reviews])
+
+  // ── Slider controls (pixel-based) ──
+  const getSlideWidth = () => {
+    if (!slider.current || !slider.current.children[0]) return 400
+    return slider.current.children[0].offsetWidth
+  }
+
+  const slideForward = () => {
+    if (!slider.current) return
+    const slideWidth = getSlideWidth()
+    const maxScroll = -(slider.current.scrollWidth - slider.current.parentElement.offsetWidth)
+    tx.current = Math.max(tx.current - slideWidth, maxScroll)
+    slider.current.style.transform = `translateX(${tx.current}px)`
   }
 
   const slideBackward = () => {
-    if (tx.current < 0) {
-      tx.current += 50
-      slider.current.style.transform = `translateX(${tx.current}%)`
-    }
+    if (!slider.current) return
+    const slideWidth = getSlideWidth()
+    tx.current = Math.min(tx.current + slideWidth, 0)
+    slider.current.style.transform = `translateX(${tx.current}px)`
   }
 
   // ── Form handling ──
@@ -119,11 +133,18 @@ const Reviews = () => {
         return
       }
 
-      // Reset form and show thank you message
+      // Add new review to the top and show it immediately
+      setReviews((prev) => [data.review, ...prev])
       setForm({ name: '', title: '', company: '', service: '', rating: 0, review: '' })
       setErrors({})
       setSubmitted(true)
       setShowForm(false)
+
+      // Scroll back to start to show the new review
+      tx.current = 0
+      if (slider.current) {
+        slider.current.style.transform = `translateX(0px)`
+      }
 
     } catch (err) {
       console.error('Submit error:', err)
@@ -183,16 +204,14 @@ const Reviews = () => {
       {/* ── CTA ── */}
       <div className="reviews-cta">
         {submitted && !showForm && (
-          <p className="thanks-msg">
-            ✓ Thank you! Your review has been submitted and will appear once approved.
-          </p>
+          <p className="thanks-msg">✓ Thank you! Your review is now live.</p>
         )}
         <button
           className="add-review-btn"
           onClick={() => { setShowForm((v) => !v); setSubmitted(false) }}
         >
           {showForm ? '✕ Cancel' : '+ Leave a Review'}
-          
+          {!showForm && <img src={white_arrow} alt="" />}
         </button>
       </div>
 
@@ -272,6 +291,7 @@ const Reviews = () => {
 
           <button type="submit" className="rf-submit" disabled={submitting}>
             {submitting ? 'Submitting…' : 'Submit Review'}
+            {!submitting && <img src={white_arrow} alt="" />}
           </button>
         </form>
       )}

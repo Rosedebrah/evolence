@@ -24,14 +24,13 @@
 }
 .slider ul{
     display: flex;
-    width: 200%;
-    overflow-x: visible;
+    width: max-content;
     transition: 0.5s;
     
 }
 .slider ul li{
     list-style: none;
-    width: 50%;
+    width: 380px;
     padding: 20px;
 
 }

@@ -7,7 +7,7 @@ const projects = [
     num: '00',
     title: 'Evolence Website',
     desc: 'The official Evolence consultancy website showcasing services, projects, and client reviews.',
-    stack: ['React', 'Vite'],
+    stack: ['React', 'Vite', 'MongoDB', 'Express.js', 'Node.js'],
     url: 'https://evolence.vercel.app',
     label: 'evolence.vercel.app',
   },
