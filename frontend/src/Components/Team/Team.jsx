@@ -2,7 +2,7 @@ import React from 'react'
 import './Team.css'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { HiOutlineMail } from 'react-icons/hi'
-import cpoPhoto from '../../assets/cpo.jpg'
+import cpoPhoto from '../../assets/cpo.JPG'
 import ctoPhoto from '../../assets/cto.png'
 
 const founders = [
