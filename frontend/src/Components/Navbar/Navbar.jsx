@@ -63,15 +63,16 @@ const Navbar = () => {
   return (
     <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
       <RouterLink to="/">
-        <img src={logo} alt="KaziFlow AI" className="logo" />
+        <img src={logo} alt="Evolence logo" className="logo" />
       </RouterLink>
 
       <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
         <li><NavItem to="hero" offset={0} label="Home" /></li>
         <li><NavItem to="services" offset={-260} label="Services" /></li>
         <li><NavItem to="about" offset={-150} label="About Us" /></li>
+        <li><NavItem to="projects" offset={-260} label="Our Projects" /></li>
         <li><NavItem to="reviews" offset={-260} label="Reviews" /></li>
-        <li><NavItem to="Projects" offset={-260} label="Our Projects" /></li>
+        <li><NavItem to="team" offset={-260} label="Our Team" /></li>
         <li><NavItem to="contact" offset={-260} label="Contact Us" isButton /></li>
       </ul>
 

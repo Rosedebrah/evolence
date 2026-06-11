@@ -1,6 +1,7 @@
 import React from 'react'
 import './About.css'
 import about_img from '../../assets/about.png'
+import logo from '../../assets/logo.png'
 
 
 

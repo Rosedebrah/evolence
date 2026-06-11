@@ -10,6 +10,7 @@ import Reviews from './Components/Reviews/Reviews'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
 import ServicePage from './Components/ServicePage/ServicePage'
+import Team from './Components/Team/Team'
 
 // ── Home page layout ──────────────────────────────────────────────
 const Home = () => (
@@ -23,6 +24,8 @@ const Home = () => (
       <Projects />
       <Title subTitle="REVIEWS" title="What Our Clients Say" />
       <Reviews />
+      <Title subTitle="THE PEOPLE BEHIND THE WORK" title="Meet the Co-Founders" />
+      <Team />
       <Title subTitle="CONTACT US" title="Get In Touch" />
       <Contact />
       <Footer />

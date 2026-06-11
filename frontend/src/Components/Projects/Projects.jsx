@@ -39,7 +39,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <>
+    <div id="projects">
       <div className="projects-grid">
         {projects.map((p) => (
           <div className="project-card" key={p.num}>
@@ -66,7 +66,7 @@ const Projects = () => {
           See More Here <img src={white_arrow} alt="" />
         </button>
       </div>
-    </>
+    </div>
   )
 }
 

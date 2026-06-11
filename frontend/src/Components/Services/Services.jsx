@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Services.css'
 import digitization from '../../assets/digitization.jpg'
-import automation from '../../assets/automation.jpg'
+import automation from '../../assets/automation.png'
 import excel from '../../assets/excel.jpg'
 import design from '../../assets/design.jpg'
 import branding from '../../assets/branding.jpg'
