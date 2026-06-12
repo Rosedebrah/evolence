@@ -147,7 +147,7 @@ const Reviews = () => {
       }
 
     } catch (err) {
-      console.error('Submit error:', err)
+      console.error('Submission error:', err)
       setSubmitError('Could not connect to server. Please try again later.')
     } finally {
       setSubmitting(false)
