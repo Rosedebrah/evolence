@@ -67,6 +67,40 @@ const ServicePage = () => {
           </div>
         </section>
 
+        {/* ── Pricing Tiers ── */}
+        {service.tiers && (
+          <section className="sp-section sp-tiers">
+            <h2 className="sp-section-label">Pricing Tiers</h2>
+            <div className="sp-tiers-grid">
+              {service.tiers.map((tier, i) => (
+                <div
+                  key={i}
+                  className={`sp-tier-card ${i === 1 ? 'sp-tier-card--featured' : ''}`}
+                >
+                  {i === 1 && (
+                    <span className="sp-tier-badge">Most Popular</span>
+                  )}
+                  <div className="sp-tier-header">
+                    <span className="sp-tier-name">{tier.name}</span>
+                    <p className="sp-tier-target">{tier.target}</p>
+                  </div>
+                  <ul className="sp-tier-features">
+                    {tier.features.map((f, j) => (
+                      <li key={j}>
+                        <span className="sp-tier-check">✓</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/#contact" className="sp-tier-cta">
+                    {i === 2 ? 'Talk to Us' : 'Get Started'}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="sp-cta-section">
           <p>Ready to get started?</p>
           <Link to="/#contact" className="sp-cta-btn">Book a Free Consultation</Link>

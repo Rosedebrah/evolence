@@ -50,6 +50,40 @@ export const servicesData = [
       },
     ],
     icon: '🏫',
+    tiers: [
+      {
+        name: 'Basic',
+        target: 'Small shops and local academies',
+        features: [
+          'Custom database for single-user admin tasks',
+          '1 core operational dashboard',
+          'Simple data migration (up to 3 sheets)',
+          '1 live staff onboarding workshop + handbook',
+          '14 days support',
+        ],
+      },
+      {
+        name: 'Standard',
+        target: 'Mid-tier schools and expanding SMEs',
+        features: [
+          'Multi-module digital ecosystem (Academics + Accounts)',
+          'Role-based access control (RBAC)',
+          'Automated generation engines (one-click reports/receipts)',
+          'Full historical data migration',
+          'Team capacity workshops + tutorials + 30 days support',
+        ],
+      },
+      {
+        name: 'Pro / Advanced',
+        target: 'Multi-branch corporations and large institutional networks',
+        features: [
+          'Cross-departmental enterprise network',
+          'Live cross-device sync + executive analytics command center',
+          'Advanced custom modules built for legacy rules',
+          'Continuous staff training during rollout + 90 days priority SLA support',
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -100,6 +134,39 @@ export const servicesData = [
       },
     ],
     icon: '⚙️',
+    tiers: [
+      {
+        name: 'Basic',
+        target: 'Solopreneurs and micro-teams',
+        features: [
+          'Automation of 2 high-friction tasks',
+          'Direct sync linking up to 3 everyday apps',
+          'Basic error-handling triggers',
+          'Loom video walkthrough of architecture',
+        ],
+      },
+      {
+        name: 'Standard',
+        target: 'Growing teams',
+        features: [
+          'Full-scale automated customer journey',
+          'Multi-step workflow branching logic via Ajubo AI templates',
+          'Internal project tracking and workload management boards',
+          'Structured SOP documentation & playbooks',
+          '30 days proactive maintenance',
+        ],
+      },
+      {
+        name: 'Pro / Advanced',
+        target: 'Scale-ups and high-volume operations',
+        features: [
+          'Complete end-to-end multi-platform integration across entire corporate stack',
+          'Deep custom script injections & intelligent data parsing via advanced Ajubo AI modules',
+          'Live dynamic KPI dashboard monitoring throughput and ROI',
+          'Monthly optimization retainer',
+        ],
+      },
+    ],
   },
   {
     id: 3,
@@ -150,6 +217,38 @@ export const servicesData = [
       },
     ],
     icon: '📊',
+    tiers: [
+      {
+        name: 'Basic',
+        target: 'Teams requiring fundamental proficiency',
+        features: [
+          '1-day intensive team workshop on spreadsheet best practices',
+          'Mastery over core logic formulas and filters',
+          'Basic data cleaning techniques',
+          'Curated take-home exercise packs & cheat sheets',
+        ],
+      },
+      {
+        name: 'Standard',
+        target: 'Financial teams, school registrars, and admin heads',
+        features: [
+          '3-day custom training built around your organisation\'s own real sheets and reports',
+          'Mastery over advanced mechanics (Pivot tables, relational data, nested logic)',
+          'Dashboard building instruction',
+          '2 weeks post-training asynchronous coaching',
+        ],
+      },
+      {
+        name: 'Pro / Advanced',
+        target: 'Executive teams, data officers, and senior managers',
+        features: [
+          'Multi-week upskilling track (relational databases & macro/script automations)',
+          'Cross-tool analytics training (Excel to web dashboards)',
+          '1-on-1 executive coaching for long-term system design',
+          'Lifetime access to custom internal video database',
+        ],
+      },
+    ],
   },
   {
     id: 4,
@@ -200,6 +299,40 @@ export const servicesData = [
       },
     ],
     icon: '🎨',
+    tiers: [
+      {
+        name: 'Basic',
+        target: 'Founders launching a proof-of-concept or MVP',
+        features: [
+          'Product discovery & feature prioritization wireframing',
+          'Fast-loading responsive Web MVP / utility interface',
+          'Secure user auth + database + single core feature execution',
+          'Thorough cross-device QA',
+          '100% IP ownership handover',
+        ],
+      },
+      {
+        name: 'Standard',
+        target: 'Established institutions and premium portals',
+        features: [
+          'Deep user research & full-scale clickable UI/UX prototypes in Figma',
+          'Scalable full-stack development (React, Node.js, relational databases)',
+          'In-app billing history, document repositories, and real-time updates',
+          '2-week agile sprints with live demos',
+          '60-day code maintenance support window',
+        ],
+      },
+      {
+        name: 'Pro / Advanced',
+        target: 'Large-scale organizations and cross-platform ecosystems',
+        features: [
+          'Central Web Admin Dashboard + Native iOS & Android apps',
+          'Deep proprietary AI integration leveraging custom Ajubo AI nodes',
+          'Unlimited user capacity architectures (high cloud speed and security)',
+          'Continuous priority dev sprint allocations + dedicated maintenance SLA retainer',
+        ],
+      },
+    ],
   },
   {
     id: 5,
@@ -250,6 +383,39 @@ export const servicesData = [
       },
     ],
     icon: '✦',
+    tiers: [
+      {
+        name: 'Basic',
+        target: 'New startups and local projects',
+        features: [
+          'Custom logo design (2 distinct conceptual directions)',
+          'Unified brand color palette & typography rules',
+          'Print-ready layouts for business cards and stationery headers',
+          '1-page minimalist brand asset index',
+        ],
+      },
+      {
+        name: 'Standard',
+        target: 'Growing companies and schools',
+        features: [
+          'Full Brand Identity System (logos, sub-marks, iconography, badges)',
+          'Comprehensive Brand Guidelines Manual',
+          'Full corporate print layouts (cards, brochures, decks, letterheads)',
+          'Layout design for uniforms, vehicles, and banners',
+        ],
+      },
+      {
+        name: 'Pro / Advanced',
+        target: 'Large organizations and premium schools rebranding completely',
+        features: [
+          '360-degree brand transformation across all touchpoints',
+          'Custom packaging layouts & environmental/signage blueprints',
+          'High-fidelity 3D structural render previews',
+          'Direct vendor print production management',
+          'Digital asset pre-formatting for software dashboard integration',
+        ],
+      },
+    ],
   },
 ]
 

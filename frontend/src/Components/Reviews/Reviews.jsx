@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react'
 import './Reviews.css'
 import next_icon from '../../assets/next-icon.png'
 import back_icon from '../../assets/back-icon.png'
-import white_arrow from '../../assets/white-arrow.png'
 import { ENDPOINTS } from '../../config/api'
 
 const SERVICES = [
