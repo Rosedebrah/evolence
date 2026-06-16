@@ -211,7 +211,6 @@ const Reviews = () => {
           onClick={() => { setShowForm((v) => !v); setSubmitted(false) }}
         >
           {showForm ? '✕ Cancel' : '+ Leave a Review'}
-          {!showForm && <img src={white_arrow} alt="" />}
         </button>
       </div>
 
@@ -291,7 +290,6 @@ const Reviews = () => {
 
           <button type="submit" className="rf-submit" disabled={submitting}>
             {submitting ? 'Submitting…' : 'Submit Review'}
-            {!submitting && <img src={white_arrow} alt="" />}
           </button>
         </form>
       )}
