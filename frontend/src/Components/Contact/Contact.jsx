@@ -11,19 +11,19 @@ import { FaInstagram, FaTiktok, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 const SOCIALS = [
   {
     label: '',
-    href: 'https://www.instagram.com/evolence.ke',
+    href: 'https://www.instagram.com/_evolence',
     icon: <FaInstagram />,
     className: 'social-link',
   },
   {
     label: '',
-    href: 'https://www.tiktok.com/@evolence.ke',
+    href: 'https://www.tiktok.com/@.evolence',
     icon: <FaTiktok />,
     className: 'social-link',
   },
   {
     label: '',
-    href: 'https://www.linkedin.com/company/evolence',
+    href: 'https://www.linkedin.com/company/evolence-ke',
     icon: <FaLinkedinIn />,
     className: 'social-link',
   },
