@@ -4,8 +4,8 @@
 .env.production
 
 # Dependencies — these are reinstalled via npm install
-
-
+node_modules
+package-lock.json
 # OS clutter
 .DS_Store
 Thumbs.db
