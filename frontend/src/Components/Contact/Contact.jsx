@@ -35,6 +35,28 @@ const SOCIALS = [
   },
 ]
 
+// Keep this in sync with whatever services you actually offer on the site.
+// Update labels/values as your ServicePage / faqData services evolve.
+const SERVICE_OPTIONS = [
+  { value: '', label: 'Select a service' },
+  { value: 'school-sme-digitisation', label: 'School & SME Digitisation' },
+  { value: 'automation-ops-support', label: 'Automation & Ops Support' },
+  { value: 'excel-data-training', label: 'Excel & Data Training' },
+  { value: 'uiux-mvp-design', label: 'UI/UX & MVP Design' },
+  { value: 'branding', label: 'Branding' },
+  { value: 'printing', label: 'Printing' },
+  { value: 'other', label: 'Other / Not sure yet' },
+]
+
+const BUDGET_OPTIONS = [
+  { value: '', label: 'Select a budget range' },
+  { value: 'under-25k', label: 'Under KES 25,000' },
+  { value: '25k-75k', label: 'KES 25,000 – 75,000' },
+  { value: '75k-150k', label: 'KES 75,000 – 150,000' },
+  { value: '150k-plus', label: 'KES 150,000+' },
+  { value: 'not-sure', label: 'Not sure yet' },
+]
+
 const Contact = () => {
   const [result, setResult] = useState('')
   const [error, setError] = useState('')
@@ -46,11 +68,17 @@ const Contact = () => {
 
     const formData = new FormData(event.target)
     const name    = formData.get('name')
+    const email   = formData.get('email')
     const phone   = formData.get('phone')
+    const company = formData.get('company')
+    const service = formData.get('service')
+    const budget  = formData.get('budget')
     const message = formData.get('message')
 
     // ── 1. Send email via Web3Forms ──
     formData.append('access_key', import.meta.env.VITE_WEB3FORMS_KEY)
+    // Nicely labelled subject line so the notification email is scannable
+    formData.append('subject', `New enquiry from ${name}${company ? ' — ' + company : ''}`)
 
     try {
       const web3Res = await fetch('https://api.web3forms.com/submit', {
@@ -77,7 +105,7 @@ const Contact = () => {
       const dbRes = await fetch(ENDPOINTS.contact, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, message }),
+        body: JSON.stringify({ name, email, phone, company, service, budget, message }),
       })
       if (!dbRes.ok) {
         console.error('DB save failed:', await dbRes.json())
@@ -143,12 +171,45 @@ const Contact = () => {
             name="name"
             placeholder="Enter your name"
             required />
+
+          <label>Email Address</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required />
+
           <label>Phone Number</label>
           <input
             type="tel"
             name="phone"
             placeholder="Enter your mobile number"
             required />
+
+          <label>Company / Business / Institution Name</label>
+          <input
+            type="text"
+            name="company"
+            placeholder="Enter your company, business, or institution name" />
+
+          <label>Service You're Interested In</label>
+          <select name="service" required defaultValue="">
+            {SERVICE_OPTIONS.map(({ value, label }) => (
+              <option key={value} value={value} disabled={value === ''}>
+                {label}
+              </option>
+            ))}
+          </select>
+
+          <label>Estimated Budget</label>
+          <select name="budget" defaultValue="">
+            {BUDGET_OPTIONS.map(({ value, label }) => (
+              <option key={value} value={value} disabled={value === ''}>
+                {label}
+              </option>
+            ))}
+          </select>
+
           <label>Write your message here</label>
           <textarea
             name="message"
