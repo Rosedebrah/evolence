@@ -10,20 +10,26 @@ connectDB()
 
 const app = express()
 
+// 1. Updated CORS to allow both local development and your live domain
 app.use(cors({
   origin: [
-    'https://evolence.vercel.app',
+    'https://evolence.co.ke',
+    'https://www.evolence.co.ke',
+    'http://localhost:5173' // Keeps local Vite testing working
   ],
-    
-     // your Vite dev URL — update to your live URL before deploying
   methods: ['GET', 'POST'],
+  credentials: true
 }))
+
 app.use(express.json())
 
+// Routes
 app.use('/api/reviews', reviewRoutes)
 app.use('/api/contact', contactRoutes)
 
-app.get('/', (req, res) => res.send('Evolence API is running'))
+// 2. Base routes to handle both root and the /api prefix cleanly
+app.get('/api', (req, res) => res.send('Evolence API is running flawlessly!'))
+app.get('/', (req, res) => res.send('Evolence API is running flawlessly!'))
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
