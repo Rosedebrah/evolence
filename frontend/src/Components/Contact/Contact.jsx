@@ -135,7 +135,7 @@ const Contact = () => {
         <ul>
           <li>
             <img src={mail_icon} alt="email" width={20} height={20} />
-            info@evolence.ke
+            info@evolence.co.ke
           </li>
           <li>
             <img src={phone_icon} alt="phone" width={20} height={20} />

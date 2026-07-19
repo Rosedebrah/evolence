@@ -49,7 +49,9 @@ const Team = () => {
             {/* Photo or avatar */}
             <div className='team-photo-wrap'>
               {f.photo ? (
-                <img src={f.photo} alt={f.name} className='team-photo' 
+                <img src={f.photo} 
+                alt={`${f.name}, ${f.title} at Evolence`} 
+                className='team-photo' 
                 style={f.id === 1 ? { objectPosition: 'center 40%' } : { objectPosition: 'center top' }}
                 />
               ) : (

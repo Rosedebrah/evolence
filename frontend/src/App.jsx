@@ -11,10 +11,16 @@ import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
 import ServicePage from './Components/ServicePage/ServicePage'
 import Team from './Components/Team/Team'
+import SEO from './Components/seo'
 
 // ── Home page layout ──────────────────────────────────────────────
 const Home = () => (
   <>
+    <SEO
+      title="Evolence — School & SME Digitisation, Automation & Design | Nairobi"
+      description="Evolence helps schools, SMEs, and founder-led teams in Nairobi digitise records, automate workflows, and design user-ready digital systems. Book a free call."
+      path="/"
+    />
     <Hero />
     <div className="container">
       <Title subTitle="Our SERVICES" title="What We Offer" />

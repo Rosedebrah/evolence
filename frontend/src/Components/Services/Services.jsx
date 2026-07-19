@@ -11,11 +11,18 @@ export const servicesData = [
     id: 1,
     slug: 'digitisation',
     image: digitization,
-    title: 'School and SME Digitisation',
+    metaTitle: 'School & SME Digitisation Services | Evolence, Nairobi',
     shortTitle: 'School and SME Digitisation',
     tagline: 'From paper chaos to digital clarity.',
-    description:
-      'We move schools and small businesses from paper records and scattered spreadsheets to clean, integrated digital systems that teams actually understand and use every day.',
+    metaDescription: [
+    'Evolence digitises school and SME records into clean, searchable digital systems — cutting manual paperwork and operational chaos in Nairobi and beyond.',
+    'Most schools and small businesses in Kenya are still running on paper registers, scattered spreadsheets, and manual filing systems that make it hard to find information when it matters most. Evolence helps you move away from that chaos by digitising your records into structured, searchable digital systems built around how your team actually works.',
+    'We start by auditing your current processes — student records, fee tracking, inventory, HR files, or client data — to understand where information gets lost, duplicated, or delayed. From there, we design and build a digital system tailored to your institution, whether that is a simple cloud-based database, a custom internal portal, or an integration with tools you already use.',
+    'For schools, this often means converting paper-based student and fee records into a searchable system that admin staff can update in real time, with role-based access so teachers, finance officers, and administrators only see what is relevant to them. For SMEs, it typically means centralising client data, inventory, and transaction records so nothing lives in a personal notebook or WhatsApp chat.',
+    'We handle everything end-to-end: requirements gathering, system design, data migration from your existing paper or spreadsheet records, staff training, and post-launch support. We also build with growth in mind — your digitised system should still make sense when your school doubles in size or your SME opens a second branch.',
+    'The result is less time spent searching for information, fewer errors from manual data entry, and a foundation you can build further automation on top of — which is exactly where our Automation & Ops Support service picks up.',
+    'Book a free call to talk through what digitisation could look like for your school or business.',
+    ],
     features: [
       'Digital record-keeping and custom database setup',
       'Dashboards for reporting and real-time monitoring',
@@ -89,11 +96,18 @@ export const servicesData = [
     id: 2,
     slug: 'automation',
     image: automation,
-    title: 'Automation and Operations Support for Founders',
+    metaTitle: 'Workflow Automation & Ops Support | Evolence, Nairobi',
     shortTitle: 'Automation & Ops Support',
     tagline: 'Less firefighting. More building.',
-    description:
-      'We help founder-led teams identify bottlenecks, automate repetitive tasks, and build operational clarity — so you spend less time firefighting and more time growing.',
+    metaDescription:[
+      'Evolence automates repetitive operational workflows — lead follow-ups, data syncing, reporting — so your team spends less time on manual admin work.', 
+      'Once your records are digitised, the next source of wasted time is usually repetitive manual work: re-entering the same data in two places, manually following up with leads, or building the same report from scratch every week. Evolence Automation & Ops Support service removes that friction by building automated workflows tailored to your operations.',
+      'Using a mix of modern low-code tools and custom integrations, we connect the systems you already use — email, spreadsheets, CRMs, messaging platforms — so information flows between them without anyone manually copying and pasting. This includes automating lead qualification and follow-up emails, syncing data between your website and internal records, generating recurring reports automatically, and setting up notification systems so your team knows when something needs attention instead of having to check manually.',
+      'For teams further along, we also build custom AI agents through our proprietary Ajubo AI framework — background automations that handle tasks like initial customer inquiry responses, appointment scheduling, or routine data entry, working invisibly behind your existing tools rather than replacing them.',
+      'Every automation we build is documented clearly, so your team understands what is running and why, and can flag changes as your business evolves — we do not believe in black-box systems you cannot maintain without us.',
+      'The goal is not to automate for its own sake; it is to remove the specific friction points slowing your team down, so people can spend their time on decisions and relationships instead of repetitive admin.',
+      'Book a free call to identify which parts of your operations are the best candidates for automation.',
+    ],
     features: [
       'Workflow mapping and process redesign',
       'Task automation using modern no-code and low-code tools',
@@ -172,11 +186,17 @@ export const servicesData = [
     id: 3,
     slug: 'training',
     image: excel,
-    title: 'Excel, Data and Digital Skills Training',
+    metaTitle: 'Excel & Financial Modelling Training | Evolence, Nairobi',
     shortTitle: 'Excel & Data Training',
     tagline: 'Real skills. Real-world results.',
-    description:
-      'Practical, hands-on training built for real-world use. We teach your team to build reports, analyse data, and use digital tools confidently — no fluff, just skills that stick.',
+    metaDescription:[
+      'Practical Excel and data training for teams — formulas, financial modelling, and reporting workflows, with hands-on post-training support.',
+      'A lot of operational chaos is not usually a software problem — it is a skills gap. Many teams already have the data they need in spreadsheets but do not have the Excel fluency to turn it into useful reporting, forecasting, or decision-making tools. Evolence\'s Excel & Data Training service closes that gap with practical, hands-on training designed around your team\'s actual work, not generic tutorials. ',
+      'We cover formulas and functions for real business use cases, financial modelling for budgeting and forecasting, data automation techniques that cut down manual reporting time, and dashboard and reporting design so your team can present data clearly to stakeholders. Training is delivered in a format that fits your team — in-person workshops, remote sessions, or a hybrid of both — and is always grounded in your organisation\'s actual spreadsheets and reporting needs rather than abstract examples.',
+      'What sets this apart from a one-off training session is the follow-through: we provide post-training technical support, so when your team gets stuck applying what they learned to a real file three weeks later, there\'s someone to ask. This is often the difference between training that\'s forgotten within a month and training that actually changes how a team works day to day.', 
+      'This service pairs naturally with our digitisation and automation work — once your data is clean and centralised, well-trained staff can get significantly more value out of it without needing a developer involved every time a report is due.',
+      'Book a free call to discuss training tailored to your team\'s spreadsheets and reporting needs.',
+    ],
     features: [
       'Excel from fundamentals to advanced techniques',
       'Data analysis, cleaning, and visualisation',
@@ -254,12 +274,18 @@ export const servicesData = [
     id: 4,
     slug: 'development',
     image: design,
-    title: 'UI/UX Design, MVP & Full-Stack Web and App Development',
+    title: 'Web & Product Design and Development | Evolence, Nairobi',
     shortTitle: 'Design & Development',
     tagline: 'From wireframe to working product.',
-    description:
-      'We design clean, user-centred interfaces and build full-stack web and mobile applications that are fast, scalable, and ready for real users.',
-    features: [
+    description: [
+      'Evolence designs and builds responsive websites, client portals, and MVPs — combining UI/UX design with full-stack development for founder-led teams',
+      'Evolence designs and builds digital products end-to-end; websites, client portals, and MVPs, for schools, SMEs, and founder-led teams that need something functional, fast, and genuinely usable, not just visually polished.',
+      'Our design process starts with understanding your users, not just your brand: how do the people using this system actually think and work? From there we design interfaces that are intuitive for real users, including staff who may not be especially tech-comfortable, and clients who expect a professional, modern experience. On the development side, we build with modern, maintainable stacks — React and Vite for fast, responsive front ends, and Node.js or similar frameworks for secure, scalable back ends — so what we ship isn\'t just good-looking today but easy to extend later.',
+      'Recent examples of this work include Dessert Duo, an online ordering platform that helped a bakery client increase customer inquiries by 35% after launch, and Emerge, a therapy booking platform with authentication and real-time session scheduling. Each project is built around the specific operational needs of the client, not a generic template.',
+      'We handle the full lifecycle: discovery and requirements, UI/UX design and prototyping, development, deployment (including hosting, domain, and SSL setup), and ongoing support after launch. Whether you need a public-facing marketing site, an internal client portal, or a full product MVP, we scope the right level of complexity for where your business actually is — not where a bigger budget might take you.',
+      'Book a free call to talk through your project and see if we are the right fit.',
+    ],
+      features: [
       'User research, wireframing, and high-fidelity UI design',
       'Clickable prototypes and MVP scoping',
       'Full-stack web development (React, Node.js, databases)',
@@ -338,11 +364,17 @@ export const servicesData = [
     id: 5,
     slug: 'branding',
     image: branding,
-    title: 'Branding and Print',
+    metaTitle: 'Branding & Print Design | Evolence, Nairobi',
     shortTitle: 'Branding & Print',
     tagline: 'Identity that means something.',
-    description:
-      'Building brand identity systems that give organisations a clear, professional, and memorable presence — across digital and physical touchpoints.',
+    metaDescription:[
+      'Evolence designs brand identities and print materials — logos, business cards, signage, and brochures — for schools and SMEs that need to look as credible as they are.',
+      'A strong digital system deserves a brand that looks just as credible in front of clients and parents. Evolence\'s Branding & Print service covers the visual identity work that supports everything else we build — logos, colour systems, business cards, signage, and print materials designed to be consistent across every touchpoint.',
+      'For schools, this often means updated signage, prospectus materials, and stationery that reflect a more modern, professionally run institution — useful when digitisation is part of a broader push to modernise how the school presents itself to parents and the community. For SMEs, it typically means a cohesive brand identity that carries through your website, social media, packaging, and printed materials, so customers recognise you consistently everywhere they encounter your business.',
+      'We design with practical use in mind: brand guidelines that your team can actually follow without a designer on standby for every new flyer, and print-ready files that work correctly with local printers rather than requiring back-and-forth troubleshooting. Where relevant, we also make sure your brand identity translates cleanly into the digital systems we build, so your website, client portal, and printed materials all feel like they come from the same organisation.',
+      'This service works well on its own for teams that just need a brand refresh, or bundled with our design & development and digitisation work for teams building or rebuilding their full presence — digital and physical — at the same time.',
+      'Book a free call to discuss your branding needs, whether that\'s a full identity or specific print materials.',
+   ],
     features: [
       'Logo design and full brand identity systems',
       'Colour palettes, typography, and brand guidelines',
@@ -430,7 +462,7 @@ const Services = () => {
           aria-label={`Learn more about ${service.shortTitle}`}
         >
           {service.image ? (
-            <img src={service.image} alt={service.shortTitle} />
+            <img src={service.image} alt={`{service.shortTitle} service - Evolence, Nairobi`} />
           ) : (
             <div className="service-placeholder">
               <span>{service.icon}</span>

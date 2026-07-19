@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { servicesData } from '../Services/Services'
 import Footer from '../Footer/Footer'
 import './ServicePage.css'
+import SEO from '../seo'
 
 const ServicePage = () => {
   const { slug } = useParams()
@@ -15,7 +16,11 @@ const ServicePage = () => {
 
   return (
     <div className="sp-root">
-
+      <SEO 
+        title={service.metaTitle}
+        description={service.metDescription}
+        path={`/services/${service.slug}`}
+        />
       {/* ── Hero ── */}
       <div className="sp-hero">
         {service.image && (
@@ -37,7 +42,9 @@ const ServicePage = () => {
 
         <section className="sp-section sp-overview">
           <h2 className="sp-section-label">Overview</h2>
-          <p className="sp-description">{service.description}</p>
+          {service.description.map((paragraph, i) => (
+            <p className='sp-description' key={i}>{paragraph}</p>
+          ))}
         </section>
 
         <section className="sp-section sp-features">
