@@ -15,7 +15,7 @@ export const servicesData = [
     metaDescription: 'Evolence digitises school and SME records into clean, searchable digital systems — cutting manual paperwork and operational chaos in Nairobi and beyond.',
     shortTitle: 'School and SME Digitisation',
     tagline: 'From paper chaos to digital clarity.',
-    metaDescription: [
+    description: [
     'Evolence digitises school and SME records into clean, searchable digital systems — cutting manual paperwork and operational chaos in Nairobi and beyond.',
     'Most schools and small businesses in Kenya are still running on paper registers, scattered spreadsheets, and manual filing systems that make it hard to find information when it matters most. Evolence helps you move away from that chaos by digitising your records into structured, searchable digital systems built around how your team actually works.',
     'We start by auditing your current processes — student records, fee tracking, inventory, HR files, or client data — to understand where information gets lost, duplicated, or delayed. From there, we design and build a digital system tailored to your institution, whether that is a simple cloud-based database, a custom internal portal, or an integration with tools you already use.',
