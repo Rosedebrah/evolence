@@ -12,6 +12,7 @@ export const servicesData = [
     slug: 'digitisation',
     image: digitization,
     metaTitle: 'School & SME Digitisation Services | Evolence, Nairobi',
+    metaDescription: 'Evolence digitises school and SME records into clean, searchable digital systems — cutting manual paperwork and operational chaos in Nairobi and beyond.',
     shortTitle: 'School and SME Digitisation',
     tagline: 'From paper chaos to digital clarity.',
     metaDescription: [
@@ -97,9 +98,10 @@ export const servicesData = [
     slug: 'automation',
     image: automation,
     metaTitle: 'Workflow Automation & Ops Support | Evolence, Nairobi',
+    metaDescription: 'Evolence automates repetitive operational workflows — lead follow-ups, data syncing, reporting — so your team spends less time on manual admin work.', 
     shortTitle: 'Automation & Ops Support',
     tagline: 'Less firefighting. More building.',
-    metaDescription:[
+    description:[
       'Evolence automates repetitive operational workflows — lead follow-ups, data syncing, reporting — so your team spends less time on manual admin work.', 
       'Once your records are digitised, the next source of wasted time is usually repetitive manual work: re-entering the same data in two places, manually following up with leads, or building the same report from scratch every week. Evolence Automation & Ops Support service removes that friction by building automated workflows tailored to your operations.',
       'Using a mix of modern low-code tools and custom integrations, we connect the systems you already use — email, spreadsheets, CRMs, messaging platforms — so information flows between them without anyone manually copying and pasting. This includes automating lead qualification and follow-up emails, syncing data between your website and internal records, generating recurring reports automatically, and setting up notification systems so your team knows when something needs attention instead of having to check manually.',
@@ -187,9 +189,10 @@ export const servicesData = [
     slug: 'training',
     image: excel,
     metaTitle: 'Excel & Financial Modelling Training | Evolence, Nairobi',
+    metaDescription: 'Practical Excel and data training for teams — formulas, financial modelling, and reporting workflows, with hands-on post-training support.',
     shortTitle: 'Excel & Data Training',
     tagline: 'Real skills. Real-world results.',
-    metaDescription:[
+    description:[
       'Practical Excel and data training for teams — formulas, financial modelling, and reporting workflows, with hands-on post-training support.',
       'A lot of operational chaos is not usually a software problem — it is a skills gap. Many teams already have the data they need in spreadsheets but do not have the Excel fluency to turn it into useful reporting, forecasting, or decision-making tools. Evolence\'s Excel & Data Training service closes that gap with practical, hands-on training designed around your team\'s actual work, not generic tutorials. ',
       'We cover formulas and functions for real business use cases, financial modelling for budgeting and forecasting, data automation techniques that cut down manual reporting time, and dashboard and reporting design so your team can present data clearly to stakeholders. Training is delivered in a format that fits your team — in-person workshops, remote sessions, or a hybrid of both — and is always grounded in your organisation\'s actual spreadsheets and reporting needs rather than abstract examples.',
@@ -274,7 +277,8 @@ export const servicesData = [
     id: 4,
     slug: 'development',
     image: design,
-    title: 'Web & Product Design and Development | Evolence, Nairobi',
+    metaTitle: 'Web & Product Design and Development | Evolence, Nairobi',
+    metaDescription: 'Evolence designs and builds responsive websites, client portals, and MVPs — combining UI/UX design with full-stack development for founder-led teams',
     shortTitle: 'Design & Development',
     tagline: 'From wireframe to working product.',
     description: [
@@ -365,9 +369,10 @@ export const servicesData = [
     slug: 'branding',
     image: branding,
     metaTitle: 'Branding & Print Design | Evolence, Nairobi',
+    metaDescription: 'Evolence designs brand identities and print materials — logos, business cards, signage, and brochures — for schools and SMEs that need to look as credible as they are.',
     shortTitle: 'Branding & Print',
     tagline: 'Identity that means something.',
-    metaDescription:[
+    description:[
       'Evolence designs brand identities and print materials — logos, business cards, signage, and brochures — for schools and SMEs that need to look as credible as they are.',
       'A strong digital system deserves a brand that looks just as credible in front of clients and parents. Evolence\'s Branding & Print service covers the visual identity work that supports everything else we build — logos, colour systems, business cards, signage, and print materials designed to be consistent across every touchpoint.',
       'For schools, this often means updated signage, prospectus materials, and stationery that reflect a more modern, professionally run institution — useful when digitisation is part of a broader push to modernise how the school presents itself to parents and the community. For SMEs, it typically means a cohesive brand identity that carries through your website, social media, packaging, and printed materials, so customers recognise you consistently everywhere they encounter your business.',
@@ -462,7 +467,7 @@ const Services = () => {
           aria-label={`Learn more about ${service.shortTitle}`}
         >
           {service.image ? (
-            <img src={service.image} alt={`{service.shortTitle} service - Evolence, Nairobi`} />
+            <img src={service.image} alt={`${service.shortTitle} service - Evolence, Nairobi`} />
           ) : (
             <div className="service-placeholder">
               <span>{service.icon}</span>

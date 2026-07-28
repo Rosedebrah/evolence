@@ -18,7 +18,7 @@ const ServicePage = () => {
     <div className="sp-root">
       <SEO 
         title={service.metaTitle}
-        description={service.metDescription}
+        description={service.metaDescription}
         path={`/services/${service.slug}`}
         />
       {/* ── Hero ── */}
