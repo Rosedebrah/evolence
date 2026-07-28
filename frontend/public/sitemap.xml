@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://evolence.co.ke/</loc></url>
-  <url><loc>https://evolence.co.ke/services</loc></url>
-  <url><loc>https://evolence.co.ke/projects</loc></url>
-  <url><loc>https://evolence.co.ke/contact</loc></url>
+  <url><loc>https://evolence.co.ke/services/digitisation</loc></url>
+  <url><loc>https://evolence.co.ke/services/automation</loc></url>
+  <url><loc>https://evolence.co.ke/services/training</loc></url>
+  <url><loc>https://evolence.co.ke/services/development</loc></url>
+  <url><loc>https://evolence.co.ke/services/branding</loc></url>
 </urlset>
