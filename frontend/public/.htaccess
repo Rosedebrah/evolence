@@ -1,10 +1,16 @@
+PassengerAppRoot "/home/evolence/my-backend-app/backend"
+PassengerBaseURI "/api"
+PassengerNodejs "/home/evolence/nodevenv/my-backend-app/backend/20/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
   RewriteCond %{REQUEST_URI} ^/api [NC]
   RewriteRule ^ - [L]
-  
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
