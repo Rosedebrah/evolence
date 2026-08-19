@@ -14,7 +14,6 @@ const Hero = () => {
     >
       <div className='hero-inner'>
 
-    
         {/* Badge */}
         <div className='hero-badge'>
           <span className='hero-badge-dot' />
@@ -23,27 +22,26 @@ const Hero = () => {
 
         {/* Heading */}
         <h1 className='hero-heading'>
-          Evolve Better.<br />
-          <span className='hero-heading-accent'>Work Smarter.</span>
+          Stop Losing Time to<br />
+          <span className='hero-heading-accent'>Paper Records & Manual Work</span>
         </h1>
 
         {/* Sub */}
         <p className='hero-sub'>
-          We help schools, SMEs, and founder-led teams cut operational chaos by
-          digitising records, automating workflows, building data-driven systems,
-          and designing products that are ready for real users.
+          Evolence digitises your school or business, automates the busywork,
+          and builds systems your team will actually use. All done for you from start to finish.
         </p>
 
         {/* CTAs */}
         <div className='hero-actions'>
-          <Link to='services' smooth={true} offset={-260} duration={500}>
+          <Link to='contact' smooth={true} offset={-260} duration={500}>
             <button className='btn hero-btn-primary'>
-              See What We Do <img src={dark_arrow} alt='' />
+              Book a Free Call <img src={dark_arrow} alt='' />
             </button>
           </Link>
-          <Link to='contact' smooth={true} offset={-260} duration={500}>
+          <Link to='services' smooth={true} offset={-260} duration={500}>
             <button className='btn hero-btn-secondary'>
-              Book a Free Call
+              See What We Do
             </button>
           </Link>
         </div>

@@ -3,8 +3,6 @@ import './About.css'
 import about_img from '../../assets/about.png'
 import logo from '../../assets/logo.png'
 
-
-
 const About = () => {
   return (
     <div className='about'>
@@ -13,11 +11,11 @@ const About = () => {
       </div>
       <div className="about-right">
         <h3>About EVOLENCE</h3>
-        <h2>Evolve Better. </h2>
-        <h2>Work Smarter.</h2>
-        <p>Evolence exists to help teams evolve how work gets done. We partner with schools, SMEs, and founder-led organizations to replace manual, fragmented processes with clear, intelligent systems. Our work sits at the unique intersection of operational design and advanced automation.</p>
-        <p>While we audit processes, build clean client-facing frontends, and train teams in practical digital skills, we supercharge our solutions using our proprietary <b>Ajubo AI</b> framework. By embedding custom AI agents directly into your day-to-day operations, we transform background automation into a smart, invisible workforce that handles lead qualification, email replies, and data syncs seamlessly.</p>
-        <p>At Evolence, we believe efficiency is not about doing more; it is about eliminating the friction of doing it. By pairing professional, user-friendly client portals with the underlying power of <b>Ajubo AI</b>, we create the operational clarity organizations need to grow sustainably, make better decisions, and focus on what truly matters.</p>
+        <h2>You Didn't Start a School</h2>
+        <h2>or Business to Drown in Admin.</h2>
+        <p>You started it to teach, to build, to grow something that matters — not to spend your evenings chasing paper registers, re-entering the same data twice, or hunting through a scattered spreadsheet for one missing record. Evolence exists to get you out of that operational chaos, so you can get back to the work you actually set out to do.</p>
+        <p>We partner with schools, SMEs, and founder-led teams to replace manual, fragmented processes with clear, intelligent systems by auditing how you actually work, building clean client-facing tools, and training your team in practical digital skills. Underneath it all, our proprietary <b>Ajubo AI</b> framework quietly handles the busywork: lead qualification, email replies, and data syncs, running invisibly in the background so your team doesn't have to.</p>
+        <p>Efficiency isn't about doing more, it's about eliminating the friction of doing it. That's exactly what we build for you: the operational clarity to grow sustainably, make better decisions, and focus on what truly matters.</p>
       </div>
     </div>
   )

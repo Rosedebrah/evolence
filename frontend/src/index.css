@@ -20,17 +20,29 @@ a{
     padding-right: 5%;
 }
 .btn{
-    background: #fff;
-    color: #212121;
-    padding: 14px 25px;
-    font-size: 16px;
-    border-radius:30px;
-    cursor: pointer;
-    border: 0;
-    outline: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;   /* full pill shape */
+  background: #212EA0;    /* matches your brand blue */
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background: #aeb3f8;
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 .btn img {
     width: 20px;

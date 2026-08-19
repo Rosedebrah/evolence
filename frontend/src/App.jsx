@@ -12,6 +12,8 @@ import Footer from './Components/Footer/Footer'
 import ServicePage from './Components/ServicePage/ServicePage'
 import Team from './Components/Team/Team'
 import SEO from './Components/seo'
+import Stake from './Components/Stake/Stake'
+import Plan from './Components/Plan/Plan'
 
 // ── Home page layout ──────────────────────────────────────────────
 const Home = () => (
@@ -22,9 +24,11 @@ const Home = () => (
       path="/"
     />
     <Hero />
+    <Stake />
     <div className="container">
       <Title subTitle="Our SERVICES" title="What We Offer" />
       <Services />
+      <Plan />
       <About />
       <Title subTitle="Our PROJECTS" title="Some of the projects we have worked on" />
       <Projects />

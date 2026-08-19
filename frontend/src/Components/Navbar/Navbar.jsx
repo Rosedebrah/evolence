@@ -4,6 +4,9 @@ import logo from '../../assets/logo.png'
 import menu_icon from '../../assets/menu-icon.png'
 import { Link as ScrollLink } from 'react-scroll'
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'
+import { FiPhoneCall
+
+ } from 'react-icons/fi'
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false)
@@ -19,16 +22,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenu(false)
   }, [location.pathname])
 
-  // If on a service page, navigate home then scroll to section
   const handleNavClick = (section, offset = -260) => {
-    if (isHome) return // let ScrollLink handle it
+    if (isHome) return
     navigate('/')
-    // small delay lets the home page mount before scrolling
     setTimeout(() => {
       const el = document.getElementById(section)
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -49,7 +49,6 @@ const Navbar = () => {
         </ScrollLink>
       )
     }
-    // On service pages — go back to home with hash
     return (
       <RouterLink
         to={`/#${to}`}
@@ -73,7 +72,9 @@ const Navbar = () => {
         <li><NavItem to="projects" offset={-260} label="Our Projects" /></li>
         <li><NavItem to="reviews" offset={-260} label="Reviews" /></li>
         <li><NavItem to="team" offset={-260} label="Our Team" /></li>
-        <li><NavItem to="contact" offset={-260} label="Contact Us" isButton /></li>
+        <li><NavItem to="contact" offset={-260} />
+        <button className= "btn hero-tn-primary"> Book a Free Call <FiPhoneCall className="btn-icon" /> 
+        </button></li>
       </ul>
 
       <img
