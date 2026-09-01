@@ -5,6 +5,7 @@ import './ServicePage.css'
 import SEO from '../seo'
 import { FiPhoneCall, FiArrowRight, FiArrowLeft } from 'react-icons/fi'
 
+
 const ServicePage = () => {
   const { slug } = useParams()
   const service = servicesData.find((s) => s.slug === slug)

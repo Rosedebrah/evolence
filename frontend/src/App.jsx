@@ -15,6 +15,7 @@ import SEO from './Components/seo'
 import Stake from './Components/Stake/Stake'
 import Plan from './Components/Plan/Plan'
 import Faq from './Components/Faq/Faq'
+import NewsletterAdmin from './Components/Admin/NewsletterAdmin'
 // ── Home page layout ──────────────────────────────────────────────
 const Home = () => (
   <>
@@ -52,6 +53,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services/:slug" element={<ServicePage />} />
+        <Route path="/admin/newsletter" element={<NewsletterAdmin />} />
       </Routes>
     </BrowserRouter>
   )

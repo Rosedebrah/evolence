@@ -4,18 +4,18 @@ import cors from 'cors'
 import connectDB from './config/db.js'
 import reviewRoutes from './routes/reviews.js'
 import contactRoutes from './routes/contact.js'
+import newsletterRoutes from './routes/newsletter.js'
 
 dotenv.config()
 connectDB()
 
 const app = express()
 
-// 1. Updated CORS to allow both local development and your live domain
 app.use(cors({
   origin: [
     'https://evolence.co.ke',
     'https://www.evolence.co.ke',
-    'http://localhost:5173' // Keeps local Vite testing working
+    'http://localhost:5173'
   ],
   methods: ['GET', 'POST'],
   credentials: true
@@ -26,8 +26,8 @@ app.use(express.json())
 // Routes
 app.use('/api/reviews', reviewRoutes)
 app.use('/api/contact', contactRoutes)
+app.use('/api/newsletter', newsletterRoutes)
 
-// 2. Base routes to handle both root and the /api prefix cleanly
 app.get('/api', (req, res) => res.send('Evolence API is running flawlessly!'))
 app.get('/', (req, res) => res.send('Evolence API is running flawlessly!'))
 
