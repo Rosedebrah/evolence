@@ -3,6 +3,7 @@ import { servicesData } from '../Services/Services'
 import Footer from '../Footer/Footer'
 import './ServicePage.css'
 import SEO from '../seo'
+import { FiPhoneCall, FiArrowRight, FiArrowLeft } from 'react-icons/fi'
 
 const ServicePage = () => {
   const { slug } = useParams()
@@ -16,11 +17,11 @@ const ServicePage = () => {
 
   return (
     <div className="sp-root">
-      <SEO 
+      <SEO
         title={service.metaTitle}
         description={service.metaDescription}
         path={`/services/${service.slug}`}
-        />
+      />
       {/* ── Hero ── */}
       <div className="sp-hero">
         {service.image && (
@@ -41,34 +42,35 @@ const ServicePage = () => {
       <div className="sp-body sp-container">
 
         <section className="sp-section sp-overview">
-          <h2 className="sp-section-label">Overview</h2>
+          <span className="sp-eyebrow">OVERVIEW</span>
+          <h2 className="sp-section-label">What This Service Covers</h2>
           {service.description.map((paragraph, i) => (
-            <p className='sp-description' key={i}>{paragraph}</p>
+            <p className="sp-description" key={i}>{paragraph}</p>
           ))}
         </section>
 
         <section className="sp-section sp-features">
-          <h2 className="sp-section-label">What's Included</h2>
-          <ul className="sp-feature-list">
+          <span className="sp-eyebrow">WHAT'S INCLUDED</span>
+          <h2 className="sp-section-label">Everything You Get</h2>
+          <div className="sp-feature-grid">
             {service.features.map((f, i) => (
-              <li key={i}>
-                <span className="sp-arrow">→</span>
-                {f}
-              </li>
+              <div className="sp-feature-card" key={i}>
+                <span className="sp-feature-number">{String(i + 1).padStart(2, '0')}</span>
+                <p>{f}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
 
         <section className="sp-section sp-process">
-          <h2 className="sp-section-label">How It Works</h2>
+          <span className="sp-eyebrow">HOW IT WORKS</span>
+          <h2 className="sp-section-label">Our Process</h2>
           <div className="sp-steps">
             {service.process.map((p, i) => (
-              <div className="sp-step" key={i}>
-                <div className="sp-step-number">{p.step}</div>
-                <div className="sp-step-content">
-                  <h3>{p.title}</h3>
-                  <p>{p.detail}</p>
-                </div>
+              <div className="sp-step-card" key={i}>
+                <span className="sp-step-number">STEP {p.step}</span>
+                <h3 className="sp-step-title">{p.title}</h3>
+                <p className="sp-step-detail">{p.detail}</p>
               </div>
             ))}
           </div>
@@ -77,7 +79,8 @@ const ServicePage = () => {
         {/* ── Pricing Tiers ── */}
         {service.tiers && (
           <section className="sp-section sp-tiers">
-            <h2 className="sp-section-label">Pricing Tiers</h2>
+            <span className="sp-eyebrow">PRICING</span>
+            <h2 className="sp-section-label">Choose Your Tier</h2>
             <div className="sp-tiers-grid">
               {service.tiers.map((tier, i) => (
                 <div
@@ -110,7 +113,9 @@ const ServicePage = () => {
 
         <section className="sp-cta-section">
           <p>Ready to get started?</p>
-          <Link to="/#contact" className="sp-cta-btn">Book a Free Consultation</Link>
+          <Link to="/#contact" className="sp-cta-btn">
+            Book a Free Call <FiPhoneCall className="btn-icon" />
+          </Link>
         </section>
 
       </div>
@@ -119,14 +124,20 @@ const ServicePage = () => {
       <div className="sp-service-nav sp-container">
         {prev ? (
           <Link to={`/services/${prev.slug}`} className="sp-nav-link sp-nav-prev">
-            <span className="sp-nav-dir">← Previous</span>
-            <span className="sp-nav-name">{prev.shortTitle}</span>
+            <FiArrowLeft className="sp-nav-arrow" />
+            <span>
+              <span className="sp-nav-dir">Previous</span>
+              <span className="sp-nav-name">{prev.shortTitle}</span>
+            </span>
           </Link>
         ) : <div />}
         {next ? (
           <Link to={`/services/${next.slug}`} className="sp-nav-link sp-nav-next">
-            <span className="sp-nav-dir">Next →</span>
-            <span className="sp-nav-name">{next.shortTitle}</span>
+            <span>
+              <span className="sp-nav-dir">Next</span>
+              <span className="sp-nav-name">{next.shortTitle}</span>
+            </span>
+            <FiArrowRight className="sp-nav-arrow" />
           </Link>
         ) : <div />}
       </div>

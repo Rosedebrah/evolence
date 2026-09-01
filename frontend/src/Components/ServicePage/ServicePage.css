@@ -6,7 +6,6 @@
   margin: 0 auto;
   padding-left: 5%;
   padding-right: 5%;
-  
 }
 
 .sp-root {
@@ -98,13 +97,23 @@
   margin-bottom: 60px;
 }
 
-.sp-section-label {
+/* Small uppercase label ABOVE the heading (e.g. "OVERVIEW") */
+.sp-eyebrow {
+  display: block;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #212EA0;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
+}
+
+/* The actual section heading (e.g. "What This Service Covers") */
+.sp-section-label {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 22px;
 }
 
 .sp-description {
@@ -115,98 +124,109 @@
   margin-bottom: 1rem;
 }
 
-/* ── Features ── */
-.sp-feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ── Features (card grid) ── */
+.sp-feature-grid {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.sp-feature-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #111827;
+.sp-feature-card {
+  position: relative;
+  flex: 1 1 220px;
+  max-width: 260px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 18px;
+  box-shadow: 0 4px 16px rgba(17, 24, 39, 0.06);
+  overflow: hidden;
 }
 
-.sp-arrow {
-  color: #212EA0;
+.sp-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #212EA0, #4C5FE0);
+}
+
+.sp-feature-number {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c7cbf0;
+  margin-bottom: 8px;
+}
+
+.sp-feature-card p {
   font-size: 14px;
-  flex-shrink: 0;
-  margin-top: 2px;
+  line-height: 1.55;
+  color: #374151;
+  margin: 0;
 }
 
-/* ── Process timeline ── */
+/* ── Process (card grid, replaces old timeline) ── */
 .sp-steps {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.sp-step {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 0 20px;
-  align-items: start;
+.sp-step-card {
+  position: relative;
+  flex: 1 1 200px;
+  max-width: 240px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 18px;
+  box-shadow: 0 4px 16px rgba(17, 24, 39, 0.06);
+  overflow: hidden;
+  text-align: left;
+}
+
+.sp-step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #212EA0, #4C5FE0);
 }
 
 .sp-step-number {
+  display: block;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #212EA0;
-  padding-top: 4px;
-  font-family: 'Outfit', monospace;
+  margin-bottom: 10px;
 }
 
-.sp-step-content {
-  padding-bottom: 36px;
-  border-left: 1.5px solid #d1d5db;
-  padding-left: 24px;
-  position: relative;
-}
-
-.sp-step-content::before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #212EA0;
-}
-
-.sp-step:last-child .sp-step-content {
-  border-left-color: transparent;
-  padding-bottom: 0;
-}
-
-.sp-step-content h3 {
+.sp-step-title {
   font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-weight: 700;
   color: #111827;
+  margin-bottom: 6px;
 }
 
-.sp-step-content p {
-  font-size: 14px;
-  line-height: 1.7;
+.sp-step-detail {
+  font-size: 13.5px;
+  line-height: 1.6;
   color: #6b7280;
+  margin: 0;
 }
 
 /* ── Pricing Tiers ── */
 .sp-tiers {
-  /* break out of sp-body's max-width so the 3-col grid can breathe */
   max-width: none;
   width: calc(100% + 10%);
   margin-left: -5%;
 }
 
+.sp-tiers .sp-eyebrow,
 .sp-tiers .sp-section-label {
   padding-left: 5%;
 }
@@ -235,7 +255,6 @@
   background: #212EA0;
 }
 
-/* Badge */
 .sp-tier-badge {
   position: absolute;
   top: -1px;
@@ -252,7 +271,6 @@
   white-space: nowrap;
 }
 
-/* Tier header */
 .sp-tier-header {
   padding-top: 12px;
 }
@@ -281,7 +299,6 @@
   color: rgba(255, 255, 255, 0.65);
 }
 
-/* Feature list inside tier */
 .sp-tier-features {
   list-style: none;
   padding: 0;
@@ -317,7 +334,6 @@
   color: #72efdd;
 }
 
-/* CTA button inside tier */
 .sp-tier-cta {
   display: block;
   text-align: center;
@@ -370,7 +386,9 @@
 }
 
 .sp-cta-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 13px;
   font-weight: 600;
   color: #ffffff;
@@ -383,6 +401,7 @@
 }
 .sp-cta-btn:hover  { opacity: 0.85; }
 .sp-cta-btn:active { transform: scale(0.98); }
+.sp-cta-btn .btn-icon { width: 15px; height: 15px; }
 
 /* ── Prev / Next ── */
 .sp-service-nav {
@@ -397,15 +416,26 @@
 
 .sp-nav-link {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
   padding: 12px 0;
 }
 
-.sp-nav-next { align-items: flex-end; text-align: right; }
+.sp-nav-next {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.sp-nav-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #212EA0;
+}
 
 .sp-nav-dir {
+  display: block;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -415,6 +445,7 @@
 }
 
 .sp-nav-name {
+  display: block;
   font-size: 14px;
   font-weight: 600;
   color: #111827;
@@ -424,6 +455,22 @@
 .sp-nav-link:hover .sp-nav-dir,
 .sp-nav-link:hover .sp-nav-name { color: #212EA0; }
 
+/* ── Stake banner (below hero) ── */
+.sp-stake {
+  background: #EEF0FB;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.sp-stake-text {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 600;
+  color: #212EA0;
+  line-height: 1.6;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .sp-tiers {
@@ -431,6 +478,7 @@
     margin-left: 0;
   }
 
+  .sp-tiers .sp-eyebrow,
   .sp-tiers .sp-section-label {
     padding-left: 0;
   }
@@ -446,11 +494,16 @@
     transform: none;
     border-radius: 20px;
   }
+
+  .sp-feature-card,
+  .sp-step-card {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
   .sp-hero         { height: 280px; }
   .sp-cta-section  { flex-direction: column; align-items: flex-start; gap: 14px; }
   .sp-service-nav  { flex-direction: column; }
-  .sp-nav-next     { align-items: flex-start; text-align: left; }
-}
+  .sp-nav-next     { flex-direction: row; text-align: left; }
+} 

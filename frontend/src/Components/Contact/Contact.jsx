@@ -6,34 +6,34 @@ import phone_icon from '../../assets/phone-icon.png'
 import location_icon from '../../assets/location-icon.png'
 import white_arrow from '../../assets/white-arrow.png'
 import { ENDPOINTS } from '../../config/api'
-import { FaInstagram, FaTiktok, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+//import { FaInstagram, FaTiktok, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 
-const SOCIALS = [
-  {
-    label: '',
-    href: 'https://www.instagram.com/_evolence?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
-    icon: <FaInstagram />,
-    className: 'social-link',
-  },
-  {
-    label: '',
-    href: 'https://www.tiktok.com/@.evolence',
-    icon: <FaTiktok />,
-    className: 'social-link',
-  },
-  {
-    label: '',
-    href: 'https://www.linkedin.com/company/evolence-ke/',
-    icon: <FaLinkedinIn />,
-    className: 'social-link',
-  },
-  {
-    label: '',
-    href: 'https://wa.me/254100558454',
-    icon: <FaWhatsapp />,
-    className: 'social-link social-whatsapp',
-  },
-]
+//const SOCIALS = [
+//{
+//    label: '',
+//    href: 'https://www.instagram.com/_evolence?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+//    icon: <FaInstagram />,
+//   className: 'social-link',
+//  },
+//  {
+//    label: '',
+//  href: 'https://www.tiktok.com/@.evolence',
+//  icon: <FaTiktok />,
+//    className: 'social-link',
+//  },
+//  {
+//    label: '',
+//    href: 'https://www.linkedin.com/company/evolence-ke/',
+//    icon: <FaLinkedinIn />,
+//    className: 'social-link',
+//  },
+//  {
+//    label: '',
+//    href: 'https://wa.me/254100558454',
+//    icon: <FaWhatsapp />,
+//    className: 'social-link social-whatsapp',
+//  },
+//]
 
 // Keep this in sync with whatever services you actually offer on the site.
 // Update labels/values as your ServicePage / faqData services evolve.
@@ -148,21 +148,7 @@ const Contact = () => {
         </ul>
 
         {/* ── Social Links ── */}
-        <div className="contact-socials">
-          {SOCIALS.map(({ label, href, icon, className }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={className}
-              aria-label={`Evolence on ${label}`}
-            >
-              {icon}
-              <span>{label}</span>
-            </a>
-          ))}
-        </div>
+      
     </div><div className="contact-col">
         <form onSubmit={onSubmit}>
           <label>Your Name</label>

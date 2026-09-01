@@ -14,7 +14,7 @@ import Team from './Components/Team/Team'
 import SEO from './Components/seo'
 import Stake from './Components/Stake/Stake'
 import Plan from './Components/Plan/Plan'
-
+import Faq from './Components/Faq/Faq'
 // ── Home page layout ──────────────────────────────────────────────
 const Home = () => (
   <>
@@ -36,6 +36,7 @@ const Home = () => (
       <Reviews />
       <Title subTitle="THE PEOPLE BEHIND THE WORK" title="Meet the Co-Founders" />
       <Team />
+      <Faq />
       <Title subTitle="CONTACT US" title="Get In Touch" />
       <Contact />
       <Footer />

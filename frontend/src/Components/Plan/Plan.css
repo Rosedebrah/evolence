@@ -79,6 +79,38 @@
   margin: 0;
 }
 
+.plan-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #212EA0;
+  cursor: pointer;
+}
+
+.plan-more-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.plan-more-icon.open {
+  transform: rotate(180deg);
+}
+
+.plan-card-expanded {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #EEF0FB;
+  font-size: 13.5px;
+  color: #55536b;
+  line-height: 1.6;
+}
 @media (max-width: 768px) {
   .plan-heading {
     font-size: 26px;
