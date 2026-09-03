@@ -1,13 +1,13 @@
 import React from 'react'
 import './About.css'
-import about_img from '../../assets/about.png'
-import logo from '../../assets/logo.png'
+import about_img from '../../assets/about.webp'
+import logo from '../../assets/logo.webp'
 
 const About = () => {
   return (
     <div className='about'>
       <div className="about-left">
-        <img src={about_img} className='about-img'/>
+        <img src={about_img} className='about-img' loading="lazy" />
       </div>
       <div className="about-right">
         <h3>About EVOLENCE</h3>

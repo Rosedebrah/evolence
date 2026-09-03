@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.webp'
 import menu_icon from '../../assets/menu-icon.png'
 import { Link as ScrollLink } from 'react-scroll'
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'
@@ -13,6 +13,8 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const isHome = location.pathname === '/'
+  const isServicePage = location.pathname.startsWith('/services/')
+  const hasHeroBackground = isHome || isServicePage
 
   useEffect(() => {
     const handleScroll = () => setSticky(window.scrollY > 550)
@@ -66,9 +68,9 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
+    <nav className={`container ${(sticky || !hasHeroBackground) ? 'dark-nav' : ''}`}>
       <RouterLink to="/">
-        <img src={logo} alt="Evolence logo" className="logo" />
+        <img src={logo} alt="Evolence logo" className="logo" loading="lazy" />
       </RouterLink>
 
       <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>

@@ -27,7 +27,7 @@ const ServicePage = () => {
       <div className="sp-hero">
         {service.image && (
           <div className="sp-hero-img">
-            <img src={service.image} alt={service.shortTitle} />
+            <img src={service.image} alt={service.shortTitle} loading="lazy" />
             <div className="sp-hero-overlay" />
           </div>
         )}

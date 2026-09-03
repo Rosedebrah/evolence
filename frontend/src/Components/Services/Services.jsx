@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import './Services.css'
-import digitization from '../../assets/digitization.jpg'
-import automation from '../../assets/automation.png'
-import excel from '../../assets/excel.jpg'
-import design from '../../assets/design.jpg'
-import branding from '../../assets/branding.jpg'
+import digitization from '../../assets/digitization.webp'
+import automation from '../../assets/automation.webp'
+import excel from '../../assets/excel.webp'
+import design from '../../assets/design.webp'
+import branding from '../../assets/branding.webp'
 
 export const servicesData = [
   {
@@ -472,7 +472,7 @@ const Services = () => {
           aria-label={`Learn more about ${service.shortTitle}`}
         >
           {service.image ? (
-            <img src={service.image} alt={`${service.shortTitle} service - Evolence, Nairobi`} />
+            <img src={service.image} alt={`${service.shortTitle} service - Evolence, Nairobi`} loading="lazy" />
           ) : (
             <div className="service-placeholder">
               <span>{service.icon}</span>

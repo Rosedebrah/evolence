@@ -2,8 +2,8 @@ import React from 'react'
 import './Team.css'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { HiOutlineMail } from 'react-icons/hi'
-import cpoPhoto from '../../assets/cpo.png'
-import ctoPhoto from '../../assets/cto.png'
+import cpoPhoto from '../../assets/cpo.webp'
+import ctoPhoto from '../../assets/cto.webp'
 
 const founders = [
   {
@@ -52,6 +52,7 @@ const Team = () => {
                 <img src={f.photo} 
                 alt={`${f.name}, ${f.title} at Evolence`} 
                 className='team-photo' 
+                loading='lazy'
                 style={f.id === 1 ? { objectPosition: 'center 40%' } : { objectPosition: 'center top' }}
                 />
               ) : (

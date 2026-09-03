@@ -1,8 +1,8 @@
 import React from 'react'
 import './Hero.css'
 import dark_arrow from '../../assets/dark-arrow.png'
-import heroBg from '../../assets/hero.jpg'
-import logo from '../../assets/logo.png'
+import heroBg from '../../assets/hero.webp'
+import logo from '../../assets/logo.webp'
 import { Link } from 'react-scroll'
 
 const Hero = () => {

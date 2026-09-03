@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Footer.css'
 import { Link as ScrollLink } from 'react-scroll'
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.webp'
 import { FaLinkedinIn, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 
 const Footer = () => {
@@ -39,7 +39,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-brand">
-          <img src={logo} alt="Evolence logo" className="footer-logo" />
+          <img src={logo} alt="Evolence logo" className="footer-logo" loading="lazy" />
           <p className="footer-tagline">
             Digitisation, automation, design, and training for schools,
             SMEs, and founder-led teams in Nairobi.
