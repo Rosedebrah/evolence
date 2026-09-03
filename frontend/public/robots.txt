@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /404
+Disallow: /admin/
+
+
 Sitemap: https://evolence.co.ke/sitemap.xml

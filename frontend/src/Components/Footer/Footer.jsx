@@ -98,6 +98,7 @@ const Footer = () => {
         <div className="footer-legal">
           <RouterLink to="/privacy">Privacy Policy</RouterLink>
           <RouterLink to="/terms">Terms of Service</RouterLink>
+          <RouterLink to="/cookies">Cookie Policy</RouterLink>
         </div>
       </div>
     </footer>

@@ -10,7 +10,7 @@ const ServicePage = () => {
   const { slug } = useParams()
   const service = servicesData.find((s) => s.slug === slug)
 
-  if (!service) return <Navigate to="/" replace />
+  if (!service) return <Navigate to="/404" replace />
 
   const currentIndex = servicesData.findIndex((s) => s.slug === slug)
   const prev = servicesData[currentIndex - 1] || null

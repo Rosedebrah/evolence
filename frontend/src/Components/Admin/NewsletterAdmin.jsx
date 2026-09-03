@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import './NewsletterAdmin.css'
 import { ENDPOINTS } from '../../config/api'
-import { Helmet } from 'react-helmet-async'
-
+import SEO from '../seo'
 
 const NewsletterAdmin = () => {
   const [adminKey, setAdminKey] = useState('')
@@ -71,7 +70,12 @@ const NewsletterAdmin = () => {
   if (!authed) {
     return (
       <div className="na-root">
-        <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
+        <SEO
+          title="Newsletter Admin | Evolence"
+          description=""
+          path="/admin/newsletter"
+          noindex
+        />
         <form className="na-login" onSubmit={handleUnlock}>
           <h2>Newsletter Admin</h2>
           <p>Enter the admin key to continue.</p>
@@ -90,6 +94,12 @@ const NewsletterAdmin = () => {
 
   return (
     <div className="na-root">
+      <SEO
+        title="Newsletter Admin | Evolence"
+        description=""
+        path="/admin/newsletter"
+        noindex
+      />
       <div className="na-panel">
         <h2>Send a Newsletter</h2>
         <p className="na-sub">This goes out immediately to every active subscriber. Double-check before sending.</p>

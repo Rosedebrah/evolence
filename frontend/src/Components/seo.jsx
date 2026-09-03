@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 
-const SEO = ({ title, description, path = '' }) => {
+const SEO = ({ title, description, path = '', noindex = false }) => {
   const url = `https://evolence.co.ke${path}`
   return (
     <Helmet>
@@ -11,6 +11,7 @@ const SEO = ({ title, description, path = '' }) => {
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
     </Helmet>
   )
 }

@@ -16,6 +16,15 @@ import Stake from './Components/Stake/Stake'
 import Plan from './Components/Plan/Plan'
 import Faq from './Components/Faq/Faq'
 import NewsletterAdmin from './Components/Admin/NewsletterAdmin'
+import PrivacyPolicy from './Components/Legal/PrivacyPolicy'
+import TermsOfService from './Components/Legal/TermsOfService'
+import CookiePolicy from './Components/Legal/CookiePolicy'
+
+
+
+
+
+
 // ── Home page layout ──────────────────────────────────────────────
 const Home = () => (
   <>
@@ -54,6 +63,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/admin/newsletter" element={<NewsletterAdmin />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/cookies" element={<CookiePolicy />} />
       </Routes>
     </BrowserRouter>
   )
