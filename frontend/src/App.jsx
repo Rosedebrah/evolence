@@ -19,7 +19,7 @@ import NewsletterAdmin from './Components/Admin/NewsletterAdmin'
 import PrivacyPolicy from './Components/Legal/PrivacyPolicy'
 import TermsOfService from './Components/Legal/TermsOfService'
 import CookiePolicy from './Components/Legal/CookiePolicy'
-
+import CookieConsent from './Components/CookieConsent/CookieConsent'
 
 
 
@@ -67,6 +67,7 @@ const App = () => {
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/cookies" element={<CookiePolicy />} />
       </Routes>
+      <CookieConsent />
     </BrowserRouter>
   )
 }
