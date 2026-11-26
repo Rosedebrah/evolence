@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.webp'
 import menu_icon from '../../assets/menu-icon.png'
 import { Link as ScrollLink } from 'react-scroll'
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'
-import { FiPhoneCall
-
- } from 'react-icons/fi'
+import { FiPhoneCall } from 'react-icons/fi'
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false)
@@ -15,6 +13,8 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const isHome = location.pathname === '/'
+  const isServicePage = location.pathname.startsWith('/services/')
+  const hasHeroBackground = isHome || isServicePage
 
   useEffect(() => {
     const handleScroll = () => setSticky(window.scrollY > 550)
@@ -45,7 +45,11 @@ const Navbar = () => {
           duration={500}
           onClick={() => setMobileMenu(false)}
         >
-          {isButton ? <button className="btn">{label}</button> : label}
+          {isButton ? (
+            <button className="btn hero-btn-primary">
+              {label} <FiPhoneCall className="btn-icon" />
+            </button>
+          ) : label}
         </ScrollLink>
       )
     }
@@ -54,15 +58,19 @@ const Navbar = () => {
         to={`/#${to}`}
         onClick={() => { setMobileMenu(false); handleNavClick(to) }}
       >
-        {isButton ? <button className="btn">{label}</button> : label}
+        {isButton ? (
+          <button className="btn hero-btn-primary">
+            {label} <FiPhoneCall className="btn-icon" />
+          </button>
+        ) : label}
       </RouterLink>
     )
   }
 
   return (
-    <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
+    <nav className={`container ${(sticky || !hasHeroBackground) ? 'dark-nav' : ''}`}>
       <RouterLink to="/">
-        <img src={logo} alt="Evolence logo" className="logo" />
+        <img src={logo} alt="Evolence logo" className="logo" loading="lazy" />
       </RouterLink>
 
       <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
@@ -72,9 +80,7 @@ const Navbar = () => {
         <li><NavItem to="projects" offset={-260} label="Our Projects" /></li>
         <li><NavItem to="reviews" offset={-260} label="Reviews" /></li>
         <li><NavItem to="team" offset={-260} label="Our Team" /></li>
-        <li><NavItem to="contact" offset={-260} />
-        <button className= "btn hero-tn-primary"> Book a Free Call <FiPhoneCall className="btn-icon" /> 
-        </button></li>
+        <li><NavItem to="contact" offset={-260} label="Book a Free Call" isButton /></li>
       </ul>
 
       <img
